@@ -4,9 +4,13 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(params[:post_params])
+    @post = Post.new(params[:posts])
     @post.save
     redirect_to @post
+  end
+
+  def show
+    @post = Post.find(params[:id])
   end
 
 private
@@ -14,8 +18,6 @@ private
     params.require(:post).permit(:title, :text)
   end
 
-  def show
-    @post = Post.find(params[:id])
-  end
+
 
 end
