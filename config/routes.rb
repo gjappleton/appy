@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  devise_for :users
-  resources :posts do
+  devise_for :owners
+  resources :restaurants do
     resources :comments
   end
 

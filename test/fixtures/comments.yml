@@ -3,9 +3,9 @@
 one:
   commenter: MyString
   body: MyText
-  post: one
+  restaurant: one
 
 two:
   commenter: MyString
   body: MyText
-  post: two
+  restaurant: two

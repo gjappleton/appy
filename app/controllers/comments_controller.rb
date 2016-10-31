@@ -4,16 +4,16 @@ class CommentsController < ApplicationController
 except: [:index, :show]
 
   def create
-    @post = Post.find(params[:post_id])
-    @comment = @post.comments.create(comment_params)
-    redirect_to post_path(@post)
+    @restaurant = restaurant.find(params[:restaurant_id])
+    @comment = @restaurant.comments.create(comment_params)
+    redirect_to restaurant_path(@restaurant)
   end
 
   def destroy
-    @post = Post.find(params[:post_id])
-    @comment = @post.comments.find(params[:id])
+    @restaurant = restaurant.find(params[:restaurant_id])
+    @comment = @restaurant.comments.find(params[:id])
     @comment.destroy
-    redirect_to post_path(@post)
+    redirect_to restaurant_path(@restaurant)
   end
 
   private
