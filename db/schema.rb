@@ -10,23 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161031191529) do
+ActiveRecord::Schema.define(version: 20161031202920) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "commenter"
     t.text     "body"
-    t.integer  "restaurant_id"
+    t.integer  "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["restaurant_id"], name: "index_comments_on_restaurant_id"
-  end
-
-  create_table "restaurants", force: :cascade do |t|
-    t.string   "title"
-    t.text     "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "owner_id"
+    t.index ["post_id"], name: "index_comments_on_post_id"
   end
 
   create_table "owners", force: :cascade do |t|
@@ -44,6 +36,14 @@ ActiveRecord::Schema.define(version: 20161031191529) do
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_owners_on_email", unique: true
     t.index ["reset_password_token"], name: "index_owners_on_reset_password_token", unique: true
+  end
+
+  create_table "restaurants", force: :cascade do |t|
+    t.string   "title"
+    t.text     "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "owner_id"
   end
 
 end

@@ -2,15 +2,15 @@ class RestaurantsController < ApplicationController
   before_action :authenticate_owner!, except: [:index, :show]
 
   def index
-    @restaurants = restaurant.all
+    @restaurants = Restaurant.all
   end
 
   def new
-    @restaurant = restaurant.new
+    @restaurant = Restaurant.new
   end
 
   def edit
-    @restaurant =restaurant.find(params[:id])
+    @restaurant =Restaurant.find(params[:id])
   end
 
   def create
@@ -24,11 +24,11 @@ class RestaurantsController < ApplicationController
   end
 
   def show
-    @restaurant = restaurant.find(params[:id])
+    @restaurant = Restaurant.find(params[:id])
   end
 
   def update
-    @restaurant = restaurant.find(params[:id])
+    @restaurant = Restaurant.find(params[:id])
 
     if @restaurant.update(restaurant_params)
       redirect_to @restaurant
@@ -38,7 +38,7 @@ class RestaurantsController < ApplicationController
   end
 
   def destroy
-    @restaurant = restaurant.find(params[:id])
+    @restaurant = Restaurant.find(params[:id])
     @restaurant.destroy
 
     redirect_to restaurants_path

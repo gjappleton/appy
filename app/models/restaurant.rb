@@ -1,5 +1,4 @@
-class restaurant < ApplicationRecord
-  has_many :comments, dependent: :destroy
+class Restaurant < ApplicationRecord
   validates :title, presence: true,
                     length: { minimum: 5 }
 
